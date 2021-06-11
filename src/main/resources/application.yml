@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: cbc
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: localhost
+    username: root
+    url: jdbc:mysql://127.0.0.1:3306/cbc?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: Cbc-HikariCP-Pool
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  servlet:
+    context-path: /cbc
